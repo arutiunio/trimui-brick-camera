@@ -185,7 +185,7 @@ idf.py build
 idf.py -p COM3 flash
 ```
 
-Replace `COM3` with the USB-UART port used by your board. On Linux/macOS use the appropriate serial device.
+Replace `COM3` with the USB-UART port used by your board. On Linux/macOS use the appropriate serial device. For prebuilt CI artifacts and the exact `esptool` command, see [`docs/flashing.md`](docs/flashing.md).
 
 `idf.py reconfigure` downloads the managed components first. `patch_uvc_hid.py` then adds the HID interface to Espressif's managed UVC component. Run the patch **after** dependency/reconfigure steps that recreate `managed_components`.
 
