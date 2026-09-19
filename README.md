@@ -1,5 +1,7 @@
 # BrickCam
 
+[![ESP32 firmware build](https://github.com/arutiunio/trimui-brick-camera/actions/workflows/esp32-build.yml/badge.svg)](https://github.com/arutiunio/trimui-brick-camera/actions/workflows/esp32-build.yml)
+
 **BrickCam** turns a Freenove ESP32-S3 + OV3660 camera board into a camera accessory for the **TrimUI Brick** running **Knulli**. One USB-C connection carries both the MJPEG camera stream (UVC) and RGB flash control (HID).
 
 > Status: work in progress. The current public baseline keeps the known-working 720p firmware quality setting (`q2`); the Brick UI currently exposes the tested FAST and NORMAL preview modes.
@@ -194,6 +196,10 @@ idf.py -p COM3 monitor
 ```
 
 Connect the board's native **USB-OTG** port to the TrimUI Brick for UVC/HID operation. USB-UART and USB-OTG can be connected simultaneously while debugging.
+
+## Continuous integration
+
+Every ESP32 firmware change is built from a clean checkout with **ESP-IDF 5.5.5** using GitHub Actions. The CI job runs `idf.py reconfigure`, applies `patch_uvc_hid.py`, builds the ESP32-S3 firmware, and publishes a `brickcam-esp32s3` artifact containing the generated flash binaries.
 
 ## HID flash protocol
 
