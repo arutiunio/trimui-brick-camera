@@ -34,3 +34,4 @@ Thumbs.db
 *.backup
 *.before_*
 *.orig
+*.pre_hid
