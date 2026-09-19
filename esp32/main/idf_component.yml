@@ -1,0 +1,20 @@
+dependencies:
+  cmake_utilities: '*'
+  esp32-camera:
+    version: 2.0.15
+  esp32_s3_eye:
+    rules:
+    - if: ${USB_WEBCAM_BOARD} in [esp32_s3_eye]
+    version: ^2.0.2
+  eyes_show:
+    rules:
+    - if: ${USB_WEBCAM_BOARD} in [esp32_s3_eye]
+  idf:
+    version: '>=5.0'
+  usb_device_uvc:
+    version: 1.3.*
+  espressif/led_strip: ^3.0.1
+targets:
+- esp32s2
+- esp32s3
+- esp32p4

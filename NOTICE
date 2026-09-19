@@ -1,0 +1,6 @@
+BrickCam
+
+The ESP32 firmware in this repository is based in part on Espressif Systems
+USB webcam example code and uses Espressif components distributed under the
+Apache License 2.0. Existing upstream copyright and SPDX notices are retained
+in derived source files.
