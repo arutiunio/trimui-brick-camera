@@ -1,4 +1,5 @@
 # BrickCam ESP-IDF defaults (tested with ESP-IDF 5.5.5)
+# CI smoke test: this file is used by the reproducible GitHub Actions build.
 
 # Flash / CPU / PSRAM
 CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
