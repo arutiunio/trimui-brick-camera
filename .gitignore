@@ -1,0 +1,36 @@
+# ESP-IDF build output
+build/
+sdkconfig
+sdkconfig.old
+
+# Managed/downloaded ESP-IDF components
+managed_components/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Logs and captures
+*.log
+*.mjpeg
+*.avi
+*.mp4
+*.jpg
+*.jpeg
+*.png
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local backups / experiments
+*.bak
+*.backup
+*.before_*
+*.orig
