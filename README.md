@@ -104,7 +104,7 @@ The currently proven capture modes are:
 | Normal | 640×480 | 15 | Working |
 | HD | 1280×720 | 15 | Experimental / tuning |
 
-For 720p, OV3660 JPEG quality and camera/UVC frame-buffer limits are being tested to find the highest stable image quality.
+The current stable 720p baseline uses OV3660 JPEG quality `q2`. More aggressive `q0` capture is still experimental because the current driver path can report missing JPEG EOI markers.
 
 ## Software architecture
 
@@ -143,8 +143,8 @@ Current development paths on the Brick:
 ```text
 /userdata/roms/ports/camera/camera_sdl.py
 /userdata/roms/ports/camera/camera.py
-/userdata/roms/ports/camera/gallery/gallery.py
-/userdata/roms/ports/Camera SDL.sh
+/userdata/roms/ports/gallery/gallery.py
+/userdata/roms/ports/BrickCam.sh
 /userdata/roms/ports/Gallery.sh
 ```
 
