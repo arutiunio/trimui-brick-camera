@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Build BrickCam firmware
         uses: espressif/esp-idf-ci-action@v1
@@ -34,7 +34,7 @@ jobs:
 
       - name: Upload firmware binaries
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: brickcam-esp32s3
           if-no-files-found: error
