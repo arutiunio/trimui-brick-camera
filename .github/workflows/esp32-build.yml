@@ -1,0 +1,46 @@
+name: ESP32 firmware build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "esp32/**"
+      - ".github/workflows/esp32-build.yml"
+  pull_request:
+    paths:
+      - "esp32/**"
+      - ".github/workflows/esp32-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ESP32-S3 / ESP-IDF 5.5.5
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build BrickCam firmware
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: v5.5.5
+          target: esp32s3
+          path: esp32
+          command: idf.py reconfigure && python patch_uvc_hid.py && idf.py build
+
+      - name: Upload firmware binaries
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: brickcam-esp32s3
+          if-no-files-found: error
+          path: |
+            esp32/build/*.bin
+            esp32/build/bootloader/*.bin
+            esp32/build/partition_table/*.bin
+            esp32/build/flasher_args.json
+            esp32/build/flash_args
